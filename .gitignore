@@ -13,3 +13,11 @@ __pycache__/
 dbt_project/target/
 dbt_project/dbt_packages/
 dbt_project/logs/
+E-Pipeline/
+Ecom-pipeline/
+Ecommerce-pipeline/
+Ecommerce/
+Pipeline/
+ecommerce-pipeline Poject/
+ecommerce-pipeline-P/
+logs/
