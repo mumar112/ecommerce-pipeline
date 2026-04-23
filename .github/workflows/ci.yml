@@ -51,23 +51,22 @@ jobs:
         run: |
           mkdir -p ~/.dbt
           cat > ~/.dbt/profiles.yml << 'EOF'
-          ecommerce_dbt:
-            target: ci
-            outputs:
-              ci:
-                type: postgres
-                host: localhost
-                user: postgres
-                password: password
-                port: 5432
-                dbname: ecommerce_test
-                schema: dbt_ci
-                threads: 2
-          EOF
+ecommerce_dbt:
+  target: ci
+  outputs:
+    ci:
+      type: postgres
+      host: localhost
+      user: postgres
+      password: password
+      port: 5432
+      dbname: ecommerce_test
+      schema: dbt_ci
+      threads: 2
+EOF
 
       - name: Run dbt
         run: |
           cd dbt_project/ecommerce_dbt
-          dbt deps
-          dbt run
-          dbt test
+          dbt run --target ci
+          dbt test --target ci
