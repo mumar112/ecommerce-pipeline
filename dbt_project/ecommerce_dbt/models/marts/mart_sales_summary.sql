@@ -42,9 +42,10 @@ final as (
         p.total_paid,
         p.payment_type
     from orders o
-    left join items     i on o.order_id   = i.order_id
-    left join payments  p on o.order_id   = p.order_id
+    left join items     i on o.order_id    = i.order_id
+    left join payments  p on o.order_id    = p.order_id
     left join customers c on o.customer_id = c.customer_id
+    where i.gross_order_value is not null    -- ADD THIS LINE
 )
 select * from final
 order by purchased_at

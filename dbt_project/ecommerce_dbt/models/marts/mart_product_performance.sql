@@ -31,7 +31,9 @@ aggregated as (
         round(sum(freight_value)::numeric, 2) as total_freight,
         round(avg(freight_value)::numeric, 2) as avg_freight
     from joined
+    where category_en is not null        -- ADD THIS LINE
     group by 1
+
 )
 select * from aggregated
 order by total_revenue desc
